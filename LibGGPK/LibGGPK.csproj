@@ -53,6 +53,12 @@
     <Compile Include="Murmur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibDat\LibDat.csproj">
+      <Project>{8F9FC78E-6181-4447-AC45-56173C16A0FA}</Project>
+      <Name>LibDat</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

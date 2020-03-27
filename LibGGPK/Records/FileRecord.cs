@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Security.Cryptography;
+using LibDat;
 
 namespace LibGGPK.Records
 {
@@ -206,11 +207,37 @@ namespace LibGGPK.Records
         /// <param name="outputDirectory">Directory to extract this file to</param>
         public void ExtractFileWithDirectoryStructure(string ggpkPath, string outputDirectory)
         {
-            var fileData = ReadFileContent(ggpkPath);
             var completeOutputDirectory = outputDirectory + Path.DirectorySeparatorChar + GetDirectoryPath();
-
             Directory.CreateDirectory(completeOutputDirectory);
-            File.WriteAllBytes(completeOutputDirectory + Path.DirectorySeparatorChar + Name, fileData);
+
+            var fileData = ReadFileContent(ggpkPath);
+
+            if (FileFormat == DataFormat.Dat)
+            {
+                DatContainer container = null;
+
+                using (var ms = new MemoryStream(fileData))
+                {
+                    try
+                    {
+                        container = new DatContainer(ms, Name);
+                    }
+                    catch(Exception ex)
+                    {
+
+                    }
+                }
+
+                if (container != null)
+                {
+                    var csv = container.GetCsvFormat();
+                    File.WriteAllText(completeOutputDirectory + Path.DirectorySeparatorChar + Name, csv);
+                }                
+            }
+            else
+            {
+                File.WriteAllBytes(completeOutputDirectory + Path.DirectorySeparatorChar + Name, fileData);
+            }
         }
 
         /// <summary>
@@ -248,7 +275,12 @@ namespace LibGGPK.Records
             {
                 if (Name.Equals("GameObjectRegister"))
                     return DataFormat.Unicode;
-                return KnownFileFormats[Path.GetExtension(Name).ToLower()];
+                var name = Path.GetExtension(Name).ToLower();
+                if (KnownFileFormats.ContainsKey(name))
+                {
+                    return KnownFileFormats[name];
+                }
+                return DataFormat.Unknown;
             }
         }
 
