@@ -133,6 +133,16 @@ namespace LibGGPK.Records
         /// </summary>
         public DirectoryTreeNode ContainingDirectory;
 
+        public FileRecord(long recordBegin, uint length, byte[] hash, string name, long dataBegin, long dataLength)
+        {
+            RecordBegin = recordBegin;
+            Length = length;
+            Hash = hash;
+            Name = name;
+            DataBegin = dataBegin;
+            DataLength = dataLength;
+        }
+
         public FileRecord(uint length, BinaryReader br)
         {
             RecordBegin = br.BaseStream.Position - 8;
@@ -275,12 +285,7 @@ namespace LibGGPK.Records
             {
                 if (Name.Equals("GameObjectRegister"))
                     return DataFormat.Unicode;
-                var name = Path.GetExtension(Name).ToLower();
-                if (KnownFileFormats.ContainsKey(name))
-                {
-                    return KnownFileFormats[name];
-                }
-                return DataFormat.Unknown;
+                return KnownFileFormats.ContainsKey(Path.GetExtension(Name).ToLower()) ? KnownFileFormats[Path.GetExtension(Name).ToLower()] : DataFormat.Unknown;
             }
         }
 
