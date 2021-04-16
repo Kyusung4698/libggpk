@@ -538,7 +538,7 @@
 			<field id="Id" type="ref|string"/>
 			<field id="Text" type="ref|string"/>
 		</record>
-		<record file="BaseItemTypes" length="215">
+		<record file="BaseItemTypes" length="223">
 			<field id="Id" type="ref|string"/>
 			<field id="ItemClassesKey" type="ulong"/>
 			<field id="Width" type="int"/>
@@ -574,7 +574,8 @@
 			<field id="IsBlessing" type="bool"/>
 			<field id="Key0" type="ulong"/>
 			<field id="Key1" type="ulong"/>
-		</record>
+			<field id="Key2" type="ulong"/>
+    </record>
 		<record file="BestiaryCapturableMonsters" length="64">
 			<field id="MonsterVarietiesKey" type="ulong"/>
 			<field id="BestiaryGroupsKey" type="ulong"/>
@@ -4000,7 +4001,7 @@
 			<field id="IsLargeAbyssMonster" type="bool"/>
 			<field id="IsSmallAbyssMonster" type="bool"/>
 		</record>
-		<record file="MonsterVarieties" length="438">
+		<record file="MonsterVarieties" length="445">
 			<field id="Id" type="ref|string"/>
 			<field id="MonsterTypesKey" type="ulong"/>
 			<field id="Unknown0" type="int"/>
@@ -4084,6 +4085,13 @@
 			<field id="Unknown104" type="int"/>
 			<field id="Unknown105" type="int"/>
 			<field id="Key3" type="ulong"/>
+      <field id="Flag6" type="byte"/>
+      <field id="Flag7" type="byte"/>
+      <field id="Flag8" type="byte"/>
+      <field id="Flag9" type="byte"/>
+      <field id="Flag10" type="byte"/>
+      <field id="Flag11" type="byte"/>
+      <field id="Flag12" type="byte"/>
 		</record>
 		<record file="MoveDaemon" length="106">
 			<field id="Unknown0" type="int"/>

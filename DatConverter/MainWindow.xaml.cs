@@ -94,8 +94,7 @@ namespace DatConverter
             var folder = ofd.SelectedPath;
             if (!Directory.Exists(folder))
                 return;
-            var list = Directory.GetFiles(folder);
-            var files = list.Where(file => file.EndsWith(".dat")).Concat(list.Where(file => file.EndsWith(".dat64"))).ToList();
+            var files = Directory.GetFiles(folder, "*.dat", SearchOption.AllDirectories).ToList();
             ConvertFiles(files);
         }
 
