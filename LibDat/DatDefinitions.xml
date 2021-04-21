@@ -2874,26 +2874,27 @@
 		<record file="InventoryId" length="0"/>
 		<record file="InventoryType" length="0"/>
 		<record file="ItemClassCategories" length="0"/>
-		<record file="ItemClasses" length="93">
+		<record file="ItemClasses" length="59">
 			<field id="Id" type="ref|string"/>
 			<field id="Name" type="ref|string"/>
 			<field id="Category" type="ref|string"/>
 			<field id="Unknown0" type="int"/>
-			<field id="Elder_TagsKey" type="ulong"/>
-			<field id="Shaper_TagsKey" type="ulong"/>
+			<field id="RemovedIfLeavesArea" type="bool"/>
+			<field id="Unknown1" type="ref|list|ulong"/>
+			<field id="Unknown2" type="ref|list|ulong"/>
 			<field id="Flag0" type="bool"/>
-			<field id="AchievementItemsKeys" type="ref|list|ulong"/>
-			<field id="Identify_AchievementItemsKeys" type="ref|list|ulong"/>
-			<field id="Crusader_TagsKey" type="ulong"/>
-			<field id="Eyrie_TagsKey" type="ulong"/>
-			<field id="Basilisk_TagsKey" type="ulong"/>
-			<field id="Adjudicator_TagsKey" type="ulong"/>
 			<field id="Flag1" type="bool"/>
 			<field id="Flag2" type="bool"/>
+			<field id="tmp1" type="int"/>
+			<field id="tmp2" type="int"/>
 			<field id="Flag3" type="bool"/>
-			<field id="Unknown1" type="int"/>
-			<field id="Unknown2" type="int"/>
 			<field id="Flag4" type="bool"/>
+			<field id="Flag5" type="bool"/>
+			<field id="Flag6" type="bool"/>
+			<field id="Flag7" type="bool"/>
+			<field id="Flag8" type="bool"/>
+			<field id="Flag9" type="bool"/>
+			<field id="Unknown3" type="ulong"/>
 		</record>
 		<record file="ItemCostPerLevel" length="76">
 			<field id="Contract_BaseItemTypesKey" type="ulong"/>
