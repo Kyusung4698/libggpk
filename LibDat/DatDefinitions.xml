@@ -2808,7 +2808,7 @@
 			<field id="Unknown6" type="ref|string"/>
 			<field id="Key0" type="ulong"/>
 		</record>
-		<record file="IncursionRooms" length="84">
+		<record file="IncursionRooms" length="92">
 			<field id="Id" type="ref|string"/>
 			<field id="Name" type="ref|string"/>
 			<field id="Tier" type="int"/>
@@ -2826,6 +2826,8 @@
 			<field id="AchievementItemsKeys" type="ref|list|ulong"/>
 			<field id="Unknown0" type="int"/>
 			<field id="Unknown1" type="int"/>
+			<field id="Unknown2" type="int"/>
+			<field id="Unknown3" type="int"/>
 			<field id="RoomUpgradeFrom_IncursionRoomsKey" type="ref|generic"/>
 		</record>
 		<record file="IncursionUniqueUpgradeComponents" length="16">
